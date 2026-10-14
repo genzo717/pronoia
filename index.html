@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRONOIA STUDIO — Personalización con Alma | Gorras, Parches & Pines</title>
+  <meta name="description" content="Pronoia Studio: Personalización de alta sofisticación con parches chenille, bordados premium, pines metálicos y stickers. Diseña tu gorra desde 1 sola pieza.">
+  <meta name="theme-color" content="#dc0109">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="PRONOIA STUDIO — Diseña tu Gorra Personalizada">
+  <meta property="og:description" content="El universo conspira a tu favor. Personaliza tu realidad con parches de tacto afelpado, bordados y pines.">
+  <meta property="og:image" content="LOGO pronoia.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="LOGO pronoia.png">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Canvas for celebration confetti -->
+  <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+  <!-- ==========================================================================
+       1. ANNOUNCEMENT TICKER (Menu.png reference)
+       ========================================================================== -->
+  <div class="ticker-wrap" role="region" aria-label="Avisos destacados">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span> PRONOIA STUDIO</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PERSONALIZACIÓN DESDE 1 PIEZA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PARCHES CHENILLE DE RELIEVE 3D</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PINES METÁLICOS ESMALTADOS</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> EL UNIVERSO CONSPIRA A TU FAVOR</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> ENVÍOS SEGUROS A TODO EL PAÍS</div>
+      <!-- Duplicate for infinite seamless scroll -->
+      <div class="ticker-item"><span class="ticker-dot"></span> PRONOIA STUDIO</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PERSONALIZACIÓN DESDE 1 PIEZA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PARCHES CHENILLE DE RELIEVE 3D</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> PINES METÁLICOS ESMALTADOS</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> EL UNIVERSO CONSPIRA A TU FAVOR</div>
+      <div class="ticker-item"><span class="ticker-dot"></span> ENVÍOS SEGUROS A TODO EL PAÍS</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. FLOATING PILL NAVBAR (Menu.png reference)
+       ========================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Navegación principal">
+      <!-- Left: Scalloped Patch Brand Badge -->
+      <a href="#" class="brand-badge" aria-label="Inicio Pronoia">
+        <div class="brand-badge-logo">
+          <img src="assets/logo-pronoia-white.png" alt="Pronoia Logo">
+        </div>
+        <div style="display:flex; flex-direction:column;">
+          <span class="brand-badge-text">PRONOIA</span>
+          <span class="brand-badge-tag">Custom Studio</span>
+        </div>
+      </a>
+
+      <!-- Center: Nav Pills -->
+      <div class="nav-pill">
+        <a href="#categorias" class="nav-link">Categorías</a>
+        <a href="#taller" class="nav-link badge-pill">Taller Virtual</a>
+        <a href="#manifiesto" class="nav-link">¿Quiénes Somos?</a>
+        <a href="#comunidad" class="nav-link">Comunidad</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+
+      <!-- Right: Social Pills & CTA Button -->
+      <div class="nav-actions">
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-circle" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-circle" aria-label="TikTok">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1v7.61c0 4.31-3.35 7.82-7.66 8.01-4.71.21-8.77-3.4-8.88-8.11-.11-4.75 3.73-8.72 8.48-8.82.72-.01 1.44.07 2.14.23V11.2c-.67-.2-1.39-.27-2.1-.22-2.39.18-4.27 2.14-4.33 4.54-.06 2.62 2.06 4.8 4.68 4.79 2.5-.01 4.53-2.02 4.53-4.52V.02h-.97z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5215500000000" target="_blank" rel="noopener" class="social-circle" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </a>
+        </div>
+        <a href="#taller" class="btn-cta-nav">
+          <span>Diseña tu Gorra</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       3. HERO SECTION (Hero.mov reference)
+       ========================================================================== -->
+  <section class="hero-section" id="inicio">
+    <!-- Grounding Background Watermark Typography -->
+    <div class="hero-background-wordmark" aria-hidden="true">
+      <img src="assets/logo-pronoia-red.png" alt="PRONOIA">
+    </div>
+
+    <div class="hero-container">
+      <!-- Left Content -->
+      <div class="hero-content">
+        <div class="hero-pill-badge">
+          <span class="sparkle">✨</span>
+          <span>Emotional Custom Studio • Desde 1 Pieza</span>
+        </div>
+
+        <h1 class="hero-title">
+          Tu historia en <span class="highlight-red">parches</span>, tu actitud en la cabeza.
+        </h1>
+
+        <p class="hero-description">
+          <strong>Pronoia</strong> es la certeza de que el universo conspira a tu favor. Iniciamos convirtiendo gorras en lienzos llenos de textura: parches chenille afelpados, bordados densos y pines de metal coleccionables.
+        </p>
+
+        <div class="hero-dopamine-quote">
+          “La vida adulta es demasiado seria: ¡es momento de llenarla de dopamina y parches!”
+        </div>
+
+        <div class="hero-actions">
+          <a href="#taller" class="btn-primary">
+            <span>Abrir Taller Virtual</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </a>
+          <a href="#comunidad" class="btn-secondary">
+            <span>Ver Gorras Reales</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Interactive Floating Showcase -->
+      <div class="hero-stage">
+        <div class="hero-circle-backdrop"></div>
+
+        <!-- Floating Interactive Badges (Hero.mov style) -->
+        <div class="floating-sticker sticker-1" style="--rot: -6deg;" onclick="triggerConfetti()">
+          <span>🧸</span> Tacto Toalla Chenille
+        </div>
+        <div class="floating-sticker sticker-2" style="--rot: 8deg;" onclick="triggerConfetti()">
+          <span>📌</span> Pines de Metal Puro
+        </div>
+        <div class="floating-sticker sticker-3" style="--rot: -8deg;" onclick="triggerConfetti()">
+          <span>⚡</span> Bordado Ultra-Denso
+        </div>
+        <div class="floating-sticker sticker-4" style="--rot: 4deg;" onclick="triggerConfetti()">
+          <span>🌈</span> 100% Personalizado
+        </div>
+
+        <!-- Center 3D Floating Cap Graphic -->
+        <div class="hero-cap-display">
+          <svg class="hero-cap-svg" viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Filter for textile & drop shadow -->
+            <defs>
+              <linearGradient id="heroCapGrad" x1="100" y1="60" x2="400" y2="380" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ff1a24"/>
+                <stop offset="60%" stop-color="#dc0109"/>
+                <stop offset="100%" stop-color="#990006"/>
+              </linearGradient>
+              <linearGradient id="heroVisorGrad" x1="120" y1="280" x2="380" y2="380" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#b80007"/>
+                <stop offset="100%" stop-color="#730004"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Back Cap Shadow -->
+            <ellipse cx="250" cy="380" rx="190" ry="28" fill="rgba(0,0,0,0.18)" filter="blur(8px)"/>
+
+            <!-- Crown Main Body -->
+            <path d="M120 280 C110 160 180 80 250 75 C320 80 390 160 380 280 C340 300 160 300 120 280 Z" fill="url(#heroCapGrad)" stroke="#730004" stroke-width="3"/>
+
+            <!-- Panel Stitches -->
+            <path d="M250 75 Q250 180 250 288" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-dasharray="5,4"/>
+            <path d="M250 75 Q180 170 145 275" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="4,4"/>
+            <path d="M250 75 Q320 170 355 275" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="4,4"/>
+
+            <!-- Crown Ventilation Eyelets -->
+            <circle cx="190" cy="180" r="5" fill="#4d0003" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+            <circle cx="310" cy="180" r="5" fill="#4d0003" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+
+            <!-- Visor / Bill -->
+            <path d="M110 275 C100 320 180 365 250 365 C320 365 400 320 390 275 C340 305 160 305 110 275 Z" fill="url(#heroVisorGrad)" stroke="#4d0003" stroke-width="2"/>
+            <path d="M130 288 C140 332 200 352 250 352 C300 352 360 332 370 288" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+            <path d="M142 298 C155 338 205 344 250 344 C295 344 345 338 358 298" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+
+            <!-- Top Button (Squatchee) -->
+            <ellipse cx="250" cy="74" rx="14" ry="10" fill="#dc0109" stroke="#ffffff" stroke-width="2"/>
+
+            <!-- Center Chenille Patch: Heart with 'AMOR' & Golden Outline -->
+            <g transform="translate(195, 135)">
+              <!-- Patch backing felt with dashed stitch -->
+              <path d="M55 96 C26 76 10 54 10 34 C10 18 24 10 38 10 C48 10 53 15 55 20 C57 15 62 10 72 10 C86 10 100 18 100 34 C100 54 84 76 55 96 Z" fill="#ffffff" stroke="#ffd152" stroke-width="4" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
+              <!-- Chenille red fluffy core -->
+              <path d="M55 90 C30 72 16 52 16 34 C16 22 26 15 38 15 C46 15 52 19 55 25 C58 19 64 15 72 15 C84 15 94 22 94 34 C94 52 80 72 55 90 Z" fill="#ff2b38"/>
+              <!-- Chenille texture dots -->
+              <circle cx="35" cy="30" r="2" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="55" cy="45" r="2" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="75" cy="30" r="2" fill="rgba(255,255,255,0.4)"/>
+              <text x="55" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="1">PRONOIA</text>
+            </g>
+
+            <!-- Metallic Enamel Pin on the Side: Golden Lightning -->
+            <g transform="translate(325, 175)">
+              <polygon points="26,2 6,28 20,28 16,48 36,22 22,22" fill="#ffd152" stroke="#b8860b" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.4))"/>
+              <polygon points="24,6 10,26 20,26 18,42 32,24 22,24" fill="#fff3a8"/>
+            </g>
+
+            <!-- Metallic Enamel Pin: Smile Star -->
+            <g transform="translate(135, 195)">
+              <circle cx="16" cy="16" r="14" fill="#ffd152" stroke="#b8860b" stroke-width="2" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.35))"/>
+              <circle cx="11" cy="13" r="2" fill="#141313"/>
+              <circle cx="21" cy="13" r="2" fill="#141313"/>
+              <path d="M10 20 Q16 26 22 20" stroke="#141313" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. CATEGORÍAS CON DISEÑO EMOCIONAL (Categorias.png reference)
+       Animated character circles with eyes tracking cursor!
+       ========================================================================== -->
+  <section class="categories-section" id="categorias">
+    <div class="section-header">
+      <span class="section-pill">Diseño Emocional • Colección 2026</span>
+      <h2 class="section-title">Explora Nuestras Categorías</h2>
+      <p class="section-subtitle">Cada pieza tiene personalidad propia. Pasa el cursor y mira cómo cobran vida con sus ojitos interactivos.</p>
+    </div>
+
+    <div class="categories-carousel-container">
+      <div class="categories-grid">
+        
+        <!-- 1. Gorras Trucker -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-red">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <path d="M20 70 C20 40 40 25 50 25 C60 25 80 40 80 70 Z" fill="#ffffff" rx="10"/>
+              <path d="M15 70 C25 82 75 82 85 70 Z" fill="#ffd152"/>
+              <!-- Expressive Eyes -->
+              <circle cx="40" cy="50" r="10" class="eye-socket"/>
+              <circle cx="40" cy="50" r="5" class="eye-pupil"/>
+              <circle cx="60" cy="50" r="10" class="eye-socket"/>
+              <circle cx="60" cy="50" r="5" class="eye-pupil"/>
+            </svg>
+          </div>
+          <div class="category-name">Gorra Trucker</div>
+          <div class="category-spec">5 Paneles • Malla</div>
+        </div>
+
+        <!-- 2. Gorras Dad Hat -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-yellow">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <path d="M22 68 C22 44 42 30 50 30 C58 30 78 44 78 68 Z" fill="#141313"/>
+              <path d="M18 68 C28 78 72 78 82 68 Z" fill="#141313"/>
+              <!-- Big Curious Eyes -->
+              <circle cx="42" cy="52" r="11" class="eye-socket"/>
+              <circle cx="42" cy="52" r="5.5" class="eye-pupil"/>
+              <circle cx="64" cy="52" r="11" class="eye-socket"/>
+              <circle cx="64" cy="52" r="5.5" class="eye-pupil"/>
+            </svg>
+          </div>
+          <div class="category-name">Dad Hat Vintage</div>
+          <div class="category-spec">Algodón Lavado</div>
+        </div>
+
+        <!-- 3. Gorras Snapback -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-pink">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <path d="M24 66 C24 38 42 24 50 24 C58 24 76 38 76 66 Z" fill="#ffffff"/>
+              <rect x="18" y="66" width="64" height="8" rx="3" fill="#dc0109"/>
+              <!-- Side-glance Cool Eyes -->
+              <circle cx="41" cy="46" r="9" class="eye-socket"/>
+              <circle cx="43" cy="46" r="4.5" class="eye-pupil"/>
+              <circle cx="59" cy="46" r="9" class="eye-socket"/>
+              <circle cx="61" cy="46" r="4.5" class="eye-pupil"/>
+            </svg>
+          </div>
+          <div class="category-name">Snapback Urban</div>
+          <div class="category-spec">Corte Streetwear</div>
+        </div>
+
+        <!-- 4. Parches Chenille -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-green">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <rect x="25" y="25" width="50" height="50" rx="16" fill="#ffffff" stroke="#141313" stroke-width="4" stroke-dasharray="4,2"/>
+              <!-- Cute Eyes -->
+              <circle cx="42" cy="48" r="9" class="eye-socket"/>
+              <circle cx="42" cy="48" r="4.5" class="eye-pupil"/>
+              <circle cx="58" cy="48" r="9" class="eye-socket"/>
+              <circle cx="58" cy="48" r="4.5" class="eye-pupil"/>
+              <path d="M46 58 Q50 63 54 58" stroke="#141313" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="category-name">Parches Chenille</div>
+          <div class="category-spec">Tacto Felpa 3D</div>
+        </div>
+
+        <!-- 5. Parches Bordados -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-blue">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="28" fill="#ffd152" stroke="#ffffff" stroke-width="4"/>
+              <!-- Eyes with Sparkle -->
+              <circle cx="43" cy="47" r="8" class="eye-socket"/>
+              <circle cx="43" cy="47" r="4" class="eye-pupil"/>
+              <circle cx="57" cy="47" r="8" class="eye-socket"/>
+              <circle cx="57" cy="47" r="4" class="eye-pupil"/>
+              <path d="M45 56 Q50 61 55 56" stroke="#141313" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="category-name">Bordados Satin</div>
+          <div class="category-spec">Hilos Alta Densidad</div>
+        </div>
+
+        <!-- 6. Pines Metálicos -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-orange">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <polygon points="50,18 60,40 82,42 66,58 71,80 50,68 29,80 34,58 18,42 40,40" fill="#ffd152" stroke="#b8860b" stroke-width="3"/>
+              <!-- Eyes on Pin -->
+              <circle cx="45" cy="48" r="6" class="eye-socket"/>
+              <circle cx="45" cy="48" r="3" class="eye-pupil"/>
+              <circle cx="55" cy="48" r="6" class="eye-socket"/>
+              <circle cx="55" cy="48" r="3" class="eye-pupil"/>
+            </svg>
+          </div>
+          <div class="category-name">Pines Esmaltados</div>
+          <div class="category-spec">Metal & Baño Oro</div>
+        </div>
+
+        <!-- 7. Stickers Vinil -->
+        <div class="category-card" onclick="document.querySelector('#taller').scrollIntoView({behavior:'smooth'})">
+          <div class="category-circle bg-dopamine-lavender">
+            <svg class="character-svg" viewBox="0 0 100 100">
+              <rect x="26" y="26" width="48" height="48" rx="12" fill="#70c1ff" transform="rotate(12 50 50)"/>
+              <!-- Curious Eyes -->
+              <circle cx="45" cy="48" r="7" class="eye-socket"/>
+              <circle cx="45" cy="48" r="3.5" class="eye-pupil"/>
+              <circle cx="58" cy="48" r="7" class="eye-socket"/>
+              <circle cx="58" cy="48" r="3.5" class="eye-pupil"/>
+            </svg>
+          </div>
+          <div class="category-name">Stickers & Merch</div>
+          <div class="category-spec">Vinil Holográfico</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. CAP CUSTOMIZER STUDIO / TALLER VIRTUAL INTERACTIVO
+       Live Canvas + Real-Time Controls + Instant WhatsApp Direct Order
+       ========================================================================== -->
+  <section class="studio-section" id="taller">
+    <div class="section-header">
+      <span class="section-pill">Taller Interactivo • En Tiempo Real</span>
+      <h2 class="section-title">Elige, Combina y Diseña tu Gorra</h2>
+      <p class="section-subtitle">Selecciona tu silueta, elige el color de base y añade tus parches o pines en la corona, laterales y visera.</p>
+    </div>
+
+    <div class="studio-grid">
+      <!-- Interactive Visualizer Canvas -->
+      <div class="studio-stage-card">
+        <div class="studio-stage-header">
+          <span class="studio-badge-live">
+            <span class="live-indicator"></span> Vista Previa Activa
+          </span>
+          <button type="button" class="studio-btn-reset" id="btn-reset-studio">
+            Reiniciar diseño
+          </button>
+        </div>
+
+        <!-- Cap Viewport with Active Hotspots -->
+        <div class="cap-viewport">
+          <div class="cap-svg-container" id="customizer-cap-viewport">
+            <!-- Dynamic Vector Cap -->
+            <svg id="customizer-cap-svg" viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+              <!-- Crown Fill Base -->
+              <path id="cap-crown-fill" d="M120 280 C110 160 180 80 250 75 C320 80 390 160 380 280 C340 300 160 300 120 280 Z" fill="#dc0109" stroke="#141313" stroke-width="2.5"/>
+              
+              <!-- Mesh Layer for Trucker model -->
+              <g id="cap-mesh-layer" opacity="0.25">
+                <line x1="140" y1="120" x2="220" y2="280" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="360" y1="120" x2="280" y2="280" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="180" y1="90" x2="160" y2="260" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="320" y1="90" x2="340" y2="260" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+              </g>
+
+              <!-- Seams -->
+              <path d="M250 75 Q250 180 250 288" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="4,4"/>
+              <path d="M250 75 Q180 170 145 275" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,4"/>
+              <path d="M250 75 Q320 170 355 275" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+              <!-- Eyelets -->
+              <circle cx="190" cy="175" r="4.5" fill="#141313" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="310" cy="175" r="4.5" fill="#141313" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+
+              <!-- Visor Fill Base -->
+              <path id="cap-visor-fill" d="M110 275 C100 320 180 365 250 365 C320 365 400 320 390 275 C340 305 160 305 110 275 Z" fill="#b80007" stroke="#141313" stroke-width="2"/>
+              <path d="M130 288 C140 332 200 352 250 352 C300 352 360 332 370 288" stroke="rgba(255,255,255,0.4)" stroke-width="1.8" stroke-dasharray="5,4" fill="none"/>
+
+              <!-- Button Top -->
+              <ellipse id="cap-button-fill" cx="250" cy="74" rx="14" ry="10" fill="#dc0109" stroke="#ffffff" stroke-width="2"/>
+            </svg>
+
+            <!-- Hotspot 1: Front Crown Patch Slot -->
+            <div class="patch-slot patch-slot-crown active-slot" id="slot-crown" data-slot="crown" title="Haz clic para seleccionar este espacio frontal">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Hotspot 2: Side Panel Pin Slot -->
+            <div class="patch-slot patch-slot-side" id="slot-side" data-slot="side" title="Haz clic para seleccionar este espacio lateral">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Hotspot 3: Visor Sticker Slot -->
+            <div class="patch-slot patch-slot-visor" id="slot-visor" data-slot="visor" title="Haz clic para seleccionar la visera">
+              <span class="slot-indicator-text">+ Visera</span>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.8rem; color:var(--text-muted); text-align:center; margin-top:14px;">
+          💡 <em>Haz clic en las zonas marcadas (Frente, Lateral, Visera) y luego elige los parches que desees añadir.</em>
+        </p>
+      </div>
+
+      <!-- Controls & Selector Drawer -->
+      <div class="studio-controls-card">
+        
+        <!-- Step 1: Model / Silhouette -->
+        <div>
+          <div class="control-group-title">
+            <span>1. Silueta de Gorra</span>
+            <span class="step-num">Base $380 MXN</span>
+          </div>
+          <div class="silhouette-pills">
+            <button type="button" class="silhouette-btn active" data-model="trucker">Trucker 5-P</button>
+            <button type="button" class="silhouette-btn" data-model="dadhat">Dad Hat Curve</button>
+            <button type="button" class="silhouette-btn" data-model="snapback">Snapback Urban</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Base Color Palette -->
+        <div>
+          <div class="control-group-title">
+            <span>2. Color de la Tela</span>
+            <span class="step-num">Pronoia Signature</span>
+          </div>
+          <div class="color-swatches">
+            <button type="button" class="color-swatch-btn active" style="background:#dc0109;" data-color="#dc0109" data-name="Rojo Pronoia" title="Rojo Pronoia"></button>
+            <button type="button" class="color-swatch-btn" style="background:#141313;" data-color="#141313" data-name="Negro Midnight" title="Negro Midnight"></button>
+            <button type="button" class="color-swatch-btn" style="background:#f4f0eb;" data-color="#f4f0eb" data-name="Blanco Crudo" title="Blanco Crudo"></button>
+            <button type="button" class="color-swatch-btn" style="background:#1b3d2f;" data-color="#1b3d2f" data-name="Verde Bosque" title="Verde Bosque"></button>
+            <button type="button" class="color-swatch-btn" style="background:#1c2d54;" data-color="#1c2d54" data-name="Azul Marino" title="Azul Marino"></button>
+            <button type="button" class="color-swatch-btn" style="background:#ff94af;" data-color="#ff94af" data-name="Rosa Chicle" title="Rosa Chicle"></button>
+          </div>
+        </div>
+
+        <!-- Step 3: Patch & Pin Picker -->
+        <div>
+          <div class="control-group-title">
+            <span>3. Colección de Parches & Pines</span>
+            <span class="step-num">Selecciona para aplicar</span>
+          </div>
+          
+          <div class="patch-tabs">
+            <button type="button" class="patch-tab-btn active" data-target="chenille">Chenille 3D</button>
+            <button type="button" class="patch-tab-btn" data-target="embroidery">Bordados</button>
+            <button type="button" class="patch-tab-btn" data-target="pins">Pines Metal</button>
+          </div>
+
+          <!-- Chenille Grid -->
+          <div class="patches-picker-grid" data-category="chenille">
+            <div class="patch-card-select" data-id="chenille-heart" data-name="Corazón Pronoia" data-price="120" data-type="chenille" data-icon="heart">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><path d="M50 86 C25 68 10 50 10 32 C10 18 22 10 35 10 C43 10 48 14 50 18 C52 14 57 10 65 10 C78 10 90 18 90 32 C90 50 75 68 50 86 Z" fill="#dc0109"/></svg>
+              </div>
+              <span class="patch-price-tag">+$120</span>
+            </div>
+
+            <div class="patch-card-select" data-id="chenille-smiley" data-name="Smiley Dopamínico" data-price="110" data-type="chenille" data-icon="smiley">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#ffd152"/><circle cx="36" cy="40" r="5" fill="#141313"/><circle cx="64" cy="40" r="5" fill="#141313"/><path d="M34 60 Q50 78 66 60" stroke="#141313" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+              </div>
+              <span class="patch-price-tag">+$110</span>
+            </div>
+
+            <div class="patch-card-select" data-id="chenille-p" data-name="Letra Varsity 'P'" data-price="95" data-type="chenille" data-icon="letter-p">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><text x="50" y="70" font-family="'Fraunces', serif" font-weight="900" font-size="60" fill="#dc0109" text-anchor="middle">P</text></svg>
+              </div>
+              <span class="patch-price-tag">+$95</span>
+            </div>
+
+            <div class="patch-card-select" data-id="chenille-flower" data-name="Flor Dopamina" data-price="115" data-type="chenille" data-icon="flower">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="#ff7597"/><circle cx="50" cy="50" r="10" fill="#ffd152"/></svg>
+              </div>
+              <span class="patch-price-tag">+$115</span>
+            </div>
+          </div>
+
+          <!-- Embroidery Grid -->
+          <div class="patches-picker-grid" data-category="embroidery" style="display:none;">
+            <div class="patch-card-select" data-id="emb-eye" data-name="Ojo Cósmico Pronoia" data-price="130" data-type="embroidery" data-icon="eye">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><path d="M15 50 Q50 20 85 50 Q50 80 15 50 Z" fill="#ffffff" stroke="#141313" stroke-width="4"/><circle cx="50" cy="50" r="16" fill="#70c1ff"/><circle cx="50" cy="50" r="8" fill="#141313"/></svg>
+              </div>
+              <span class="patch-price-tag">+$130</span>
+            </div>
+
+            <div class="patch-card-select" data-id="emb-cherries" data-name="Cerezas Pop" data-price="105" data-type="embroidery" data-icon="cherries">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><circle cx="36" cy="65" r="16" fill="#dc0109"/><circle cx="68" cy="68" r="16" fill="#dc0109"/></svg>
+              </div>
+              <span class="patch-price-tag">+$105</span>
+            </div>
+          </div>
+
+          <!-- Pins Grid -->
+          <div class="patches-picker-grid" data-category="pins" style="display:none;">
+            <div class="patch-card-select" data-id="pin-bolt" data-name="Relámpago Dorado" data-price="85" data-type="pin" data-icon="bolt">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><polygon points="56,8 24,52 48,52 44,88 74,46 52,46" fill="#ffd152"/></svg>
+              </div>
+              <span class="patch-price-tag">+$85</span>
+            </div>
+
+            <div class="patch-card-select" data-id="pin-star" data-name="Estrella de la Suerte" data-price="90" data-type="pin" data-icon="pin-star">
+              <div class="patch-preview-icon">
+                <svg viewBox="0 0 100 100"><polygon points="50,10 62,38 92,40 68,60 76,88 50,72 24,88 32,60 8,40 38,38" fill="#ffd152"/></svg>
+              </div>
+              <span class="patch-price-tag">+$90</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout / WhatsApp Direct Action -->
+        <div class="studio-checkout-box">
+          <div class="price-row">
+            <span class="price-label">Inversión Estimada:</span>
+            <span class="price-total" id="studio-total-price">$585 MXN</span>
+          </div>
+          
+          <a href="#" id="btn-whatsapp-custom" target="_blank" rel="noopener" class="btn-whatsapp-order">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.179.182-.077.357.101.174.451.744.968 1.205.666.594 1.228.777 1.402.864.174.087.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.044.073.044.42-.1 1.026z"/>
+            </svg>
+            <span>Pedir Mi Diseño por WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. ¿QUIÉNES SOMOS? & MANIFIESTO (Que somos.mov reference)
+       Wavy scalloped borders, circular product lenses & storytelling
+       ========================================================================== -->
+  <section class="manifesto-section" id="manifiesto">
+    <div class="scallop-divider-top"></div>
+
+    <div class="manifesto-container">
+      <div class="section-header" style="margin-bottom:60px;">
+        <span class="section-pill">Manifiesto Pronoia</span>
+        <h2 class="section-title">El Arte de la Personalización Táctil</h2>
+        <p class="section-subtitle">
+          No creamos gorras genéricas de estante. Creamos amuletos portables que te recuerdan a diario que todo conspira a tu favor.
+        </p>
+      </div>
+
+      <!-- 3 Highlight Cards with Circular Lenses (Que somos.mov reference) -->
+      <div class="manifesto-cards-grid">
+        <!-- Card 1 -->
+        <div class="manifesto-card">
+          <div class="manifesto-card-lens">
+            <svg viewBox="0 0 100 100" style="background:#fff0f1; width:100%; height:100%;">
+              <path d="M50 82 C28 66 16 50 16 34 C16 22 26 15 38 15 C46 15 52 19 55 25 C58 19 64 15 72 15 C84 15 94 22 94 34 C94 50 82 66 50 82 Z" fill="#dc0109" stroke="#ffffff" stroke-width="4"/>
+            </svg>
+          </div>
+          <h3 class="manifesto-card-title">Chenille 3D Afelpado</h3>
+          <p class="manifesto-card-desc">
+            Tejido de bucle denso con textura suave de toalla de lujo. Relieve tridimensional imposible de ignorar.
+          </p>
+          <a href="#taller" class="manifesto-card-btn">Personalizar Chenille</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="manifesto-card">
+          <div class="manifesto-card-lens">
+            <svg viewBox="0 0 100 100" style="background:#fff9e6; width:100%; height:100%;">
+              <polygon points="50,15 62,38 88,40 68,58 74,84 50,70 26,84 32,58 12,40 38,38" fill="#ffd152" stroke="#b8860b" stroke-width="3"/>
+            </svg>
+          </div>
+          <h3 class="manifesto-card-title">Pines Esmaltados</h3>
+          <p class="manifesto-card-desc">
+            Fundición en aleación metálica con baño brillante y esmalte duro curado al horno para durar décadas.
+          </p>
+          <a href="#taller" class="manifesto-card-btn">Elegir Pines</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="manifesto-card">
+          <div class="manifesto-card-lens">
+            <svg viewBox="0 0 100 100" style="background:#eef8f3; width:100%; height:100%;">
+              <circle cx="50" cy="50" r="32" fill="#88c758" stroke="#ffffff" stroke-width="4"/>
+              <path d="M38 50 L46 58 L64 40" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="manifesto-card-title">Sin Mínimos Absurdos</h3>
+          <p class="manifesto-card-desc">
+            Personalizamos desde 1 sola pieza para ti o lotes exclusivos para tu marca, club o evento especial.
+          </p>
+          <a href="#taller" class="manifesto-card-btn">Pedir Desde 1 Pieza</a>
+        </div>
+      </div>
+
+      <!-- Split Story Card (Que somos.mov reference) -->
+      <div class="manifesto-story">
+        <div class="story-badge-sticker">
+          Hecho a Mano con Amor & Dopamina ✨
+        </div>
+
+        <div>
+          <h3 class="story-title">¿Qué significa vivir en Pronoia?</h3>
+          <p class="story-text">
+            Vivimos en un mundo que a veces se toma demasiado en serio. En <strong>Pronoia</strong> creemos en el juego, la autoexpresión y la magia de lo tangible.
+          </p>
+          <p class="story-text">
+            Comenzamos especializándonos en gorras porque la cabeza es lo primero que ve el mundo cuando te mira a los ojos. Con cada parche chenille, cada bordado y cada pin, transformas un accesorio común en un estandarte de tu identidad.
+          </p>
+          <ul class="story-list">
+            <li>
+              <span class="story-list-check">✓</span>
+              <span>Aplicación térmica industrial indestructible</span>
+            </li>
+            <li>
+              <span class="story-list-check">✓</span>
+              <span>Materiales premium seleccionados uno a uno</span>
+            </li>
+            <li>
+              <span class="story-list-check">✓</span>
+              <span>Asesoría personalizada por WhatsApp durante todo el proceso</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="story-visual">
+          <div class="story-visual-frame">
+            <img src="assets/community-1.jpg" alt="Persona usando gorra personalizada Pronoia en café" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scallop-divider-bottom"></div>
+  </section>
+
+  <!-- ==========================================================================
+       7. PRUEBA SOCIAL / COMUNIDAD (Prueba social.png reference)
+       Real UGC cards, real caps, real happy customers
+       ========================================================================== -->
+  <section class="social-proof-section" id="comunidad">
+    <div class="section-header">
+      <span class="section-pill">Comunidad Pronoia</span>
+      <h2 class="section-title">Gorras en el Mundo Real</h2>
+      <p class="section-subtitle">
+        Nuestras creaciones recorren calles, festivales y cafeterías. Inspírate con las combinaciones de nuestra comunidad.
+      </p>
+    </div>
+
+    <!-- Filter Pills (Prueba social.png reference) -->
+    <div class="social-filters">
+      <button type="button" class="filter-pill active" data-filter="all">Todas las Gorras</button>
+      <button type="button" class="filter-pill" data-filter="trucker">Trucker Caps</button>
+      <button type="button" class="filter-pill" data-filter="dadhat">Dad Hats Vintage</button>
+      <button type="button" class="filter-pill" data-filter="flatlay">Sets & Colecciones</button>
+    </div>
+
+    <!-- UGC Gallery Grid -->
+    <div class="ugc-gallery-grid">
+      
+      <!-- UGC Card 1 -->
+      <article class="ugc-card" data-category="dadhat">
+        <div class="ugc-card-media">
+          <img src="assets/community-1.jpg" alt="Gorra Roja Pronoia con parche floral" loading="lazy">
+          <span class="ugc-card-tag">Rojo Signature #dc0109</span>
+        </div>
+        <div class="ugc-card-body">
+          <div class="ugc-stars">★★★★★</div>
+          <p class="ugc-review-quote">“El color rojo del logo es aún más vibrante en persona. El parche de flores chenille se siente suavecito y súper premium.”</p>
+          <div class="ugc-author-row">
+            <span class="ugc-author-name">Sofía M.</span>
+            <span class="ugc-city">CDMX</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- UGC Card 2 -->
+      <article class="ugc-card" data-category="flatlay">
+        <div class="ugc-card-media">
+          <img src="assets/community-2.jpg" alt="Flat lay con tres gorras customizadas Pronoia" loading="lazy">
+          <span class="ugc-card-tag">Trio Custom Lab</span>
+        </div>
+        <div class="ugc-card-body">
+          <div class="ugc-stars">★★★★★</div>
+          <p class="ugc-review-quote">“Pedimos 3 gorras para nuestro grupo de amigos. Cada quien eligió sus parches favoritos y llegaron impecables en 3 días.”</p>
+          <div class="ugc-author-row">
+            <span class="ugc-author-name">Mateo & Amigos</span>
+            <span class="ugc-city">Guadalajara</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- UGC Card 3 -->
+      <article class="ugc-card" data-category="trucker">
+        <div class="ugc-card-media">
+          <img src="assets/community-3.jpg" alt="Persona en festival con gorra trucker crema y corazón chenille" loading="lazy">
+          <span class="ugc-card-tag">Trucker Chenille Heart</span>
+        </div>
+        <div class="ugc-card-body">
+          <div class="ugc-stars">★★★★★</div>
+          <p class="ugc-review-quote">“La llevé a un festival de música y como 5 personas me preguntaron dónde la había conseguido. ¡100% recomendada!”</p>
+          <div class="ugc-author-row">
+            <span class="ugc-author-name">Valeria R.</span>
+            <span class="ugc-city">Monterrey</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- UGC Card 4 -->
+      <article class="ugc-card" data-category="dadhat">
+        <div class="ugc-card-media">
+          <img src="assets/community-4.jpg" alt="Detalle de gorra denim con parches bordados y pines metálicos" loading="lazy">
+          <span class="ugc-card-tag">Vintage Washed Denim</span>
+        </div>
+        <div class="ugc-card-body">
+          <div class="ugc-stars">★★★★★</div>
+          <p class="ugc-review-quote">“Los pines dorados tienen un peso y un brillo espectacular. La tela deslavada combinada con los parches luce de diseñador.”</p>
+          <div class="ugc-author-row">
+            <span class="ugc-author-name">Diego G.</span>
+            <span class="ugc-city">Puebla</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. MERCH LAB TEASER (Upcoming Expansion)
+       Expanding from Caps to Totes, Hoodies, Socks & Jackets
+       ========================================================================== -->
+  <section class="merch-lab-teaser">
+    <div>
+      <span class="teaser-badge">Próximamente • Pronoia Lab</span>
+      <h2 class="teaser-title">Iniciamos en Gorras. El Futuro es Todo Tu Merch.</h2>
+      <p class="teaser-desc">
+        Muy pronto podrás transferir tus parches chenille, bordados y pines favoritos a piezas completas de streetwear. Sé de los primeros en acceder al laboratorio de personalización expandido.
+      </p>
+      <div class="teaser-items-pills">
+        <span class="teaser-pill">👜 Tote Bags Gruesas</span>
+        <span class="teaser-pill">🧥 Hoodies Oversize 450 GSM</span>
+        <span class="teaser-pill">🧦 Calcetines con Parche</span>
+        <span class="teaser-pill">👕 Camisetas Heavy Cotton</span>
+      </div>
+    </div>
+
+    <div>
+      <form class="teaser-form" id="teaser-subscribe-form">
+        <p style="font-size:0.88rem; font-weight:700;">Acceso VIP a los próximos drops:</p>
+        <div class="teaser-input-group">
+          <input type="email" class="teaser-input" placeholder="Tu correo electrónico..." required>
+          <button type="submit" class="teaser-submit-btn">Unirme</button>
+        </div>
+        <span style="font-size:0.74rem; opacity:0.7;">✨ Cero spam. Solo beneficios y lanzamientos exclusivos.</span>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. FOOTER EMOCIONAL (Footer.mov reference)
+       Signature #dc0109 Red Background with Infinite Scrolling Typographic Track
+       ========================================================================== -->
+  <footer class="footer-section" id="contacto">
+    
+    <!-- Floating Back to Top Button (Footer.mov reference) -->
+    <button type="button" class="btn-back-to-top" id="btn-back-to-top" aria-label="Subir al inicio">
+      <span>Volver Arriba</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+
+    <!-- Infinite Watermark Typography Scroll (Footer.mov reference) -->
+    <div class="footer-watermark-wrap" aria-hidden="true">
+      <div class="footer-watermark-track">
+        <span class="footer-watermark-text">pronoia. pronoia. pronoia. pronoia. pronoia.</span>
+        <span class="footer-watermark-text">pronoia. pronoia. pronoia. pronoia. pronoia.</span>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer-main-grid">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand-col">
+          <img src="assets/logo-pronoia-white.png" alt="PRONOIA Studio" class="footer-logo-img">
+          <p class="footer-bio">
+            Estudio de personalización con diseño emocional. Convertimos piezas textiles en obras tangibles de autoexpresión con parches chenille, bordados y pines.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-pill" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-social-pill" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1v7.61c0 4.31-3.35 7.82-7.66 8.01-4.71.21-8.77-3.4-8.88-8.11-.11-4.75 3.73-8.72 8.48-8.82.72-.01 1.44.07 2.14.23V11.2c-.67-.2-1.39-.27-2.1-.22-2.39.18-4.27 2.14-4.33 4.54-.06 2.62 2.06 4.8 4.68 4.79 2.5-.01 4.53-2.02 4.53-4.52V.02h-.97z"/></svg>
+            </a>
+            <a href="https://wa.me/5215500000000" target="_blank" rel="noopener" class="footer-social-pill" aria-label="WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explorar -->
+        <div>
+          <h4 class="footer-col-title">Explorar</h4>
+          <ul class="footer-links-list">
+            <li><a href="#taller">Taller Virtual de Gorras</a></li>
+            <li><a href="#categorias">Colección de Parches</a></li>
+            <li><a href="#categorias">Pines Metálicos</a></li>
+            <li><a href="#manifiesto">Proceso Artesanal</a></li>
+            <li><a href="#comunidad">Galería Comunitaria</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Categorías -->
+        <div>
+          <h4 class="footer-col-title">Siluetas</h4>
+          <ul class="footer-links-list">
+            <li><a href="#taller">Trucker 5-Panel</a></li>
+            <li><a href="#taller">Dad Hat Vintage Curve</a></li>
+            <li><a href="#taller">Snapback Streetwear</a></li>
+            <li><a href="#taller">Parches Chenille de Felpa</a></li>
+            <li><a href="#taller">Pines de Esmalte Duro</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contacto Directo -->
+        <div>
+          <h4 class="footer-col-title">Atención & Pedidos</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+52 (55) 1234-5678</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>hola@pronoiastudio.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Lun - Sáb: 9:00 - 19:00 hrs</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>© 2026 PRONOIA Studio. Todos los derechos reservados. El universo conspira a tu favor.</div>
+        <div>Términos & Condiciones • Aviso de Privacidad • Envíos Nacionales</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
